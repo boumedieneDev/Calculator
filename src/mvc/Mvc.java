@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package mvc;
 
 /**
@@ -14,7 +10,7 @@ public class Mvc {
     	
     	CalculatorView theView = new CalculatorView();
         
-    	CalculatorModel theModel = new CalculatorModel();
+    	// CalculatorModel theModel = new CalculatorModel();
         
         // CalculatorController theController = new CalculatorController(theView,theModel);
         
