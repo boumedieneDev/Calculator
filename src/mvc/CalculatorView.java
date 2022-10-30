@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 
 
 // Le seul travail de la vue est d'afficher ce que l'utilisateur voit
-// La vue n'effectue pas d'opérations 
+// La vue n'effectue pas d'opérations
 
 import java.awt.event.ActionListener;
 import java.awt.*;
@@ -18,25 +18,36 @@ import javax.swing.*;
 
 public class CalculatorView extends JFrame implements ActionListener{
 
-	// private JTextField firstNumber  = new JTextField(10);
-	// private JLabel additionLabel = new JLabel("+");
-	// private JTextField secondNumber = new JTextField(10);
-	// private JButton calculateButton = new JButton("Calculate");
-	// private JTextField calcSolution = new JTextField(10);
-	
+	private JTextField firstNumber  = new JTextField(10);
+	public void setFirstNumber(String firstNumber) {
+		this.firstNumber.setText(firstNumber);;
+	}
+	public String getFirstNumber() {
+		return firstNumber.getText();
+	}
+
+	private JTextField secondNumber = new JTextField(10);
+	public void setSecondNumber(String secondNumber) {
+		this.secondNumber.setText(secondNumber);;
+	}
+	public String getSecondNumber() {
+		return secondNumber.getText();
+	}
+
+	private JTextField calcSolution = new JTextField(10);
+	public String getCalcSolution(){
+		return calcSolution.getText();
+	}
+	public void setCalcSolution(double solution){
+		calcSolution.setText(Double.toString(solution));
+	}
+
 	// JFrame frame =  new JFrame();
 	JPanel head = new JPanel();
 	Container number = new Container();
 	Container opp = new Container();
 
-	JTextField result = new JTextField(25);
 
-	// JButton[][] buttons = new JButton[4][5];
- 
-	// buttons[0][0] = new JButton("C");
-	// buttons[1][0] = new JButton("(-)");
-	// buttons[2][0] = new JButton("%");
-	// buttons[3][0] = new JButton("/");
 
 	JButton ac = new JButton("C");
 	JButton minus = new JButton("(-)");
@@ -88,95 +99,53 @@ public class CalculatorView extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
 		this.setSize(600, 250);
-		
+
 		head.setSize(550, 90);
-		head.add(result);
-		
-		// oop.setSize(350, 150);
-		// number.setSize(240, 150);
+		head.add(firstNumber);
+		head.add(secondNumber);
+		head.add(new JLabel("="));
+		calcSolution.setText("0");
+		head.add(calcSolution);
+
 
 		opp.setLayout(new GridLayout(5,7));
-		care.addActionListener(this);
-		opp.add(care);
-		pow.addActionListener(this);
-		opp.add(pow);
-		parenthese.addActionListener(this);
-		opp.add(parenthese);
-		ac.addActionListener(this);
-		opp.add(ac);
-		minus.addActionListener(this);
-		opp.add(minus);
-		modulo.addActionListener(this);
-		opp.add(modulo);
-		devision.addActionListener(this);
 		opp.add(devision);
-
-		e.addActionListener(this);
-		opp.add(e);
-		pow_ten.addActionListener(this);
-		opp.add(pow_ten);
-		invert.addActionListener(this);
-		opp.add(invert);
-		seven.addActionListener(this);
-		opp.add(seven);
-		eight.addActionListener(this);
-		opp.add(eight);
-		nine.addActionListener(this);
-		opp.add(nine);
-		multiple.addActionListener(this);
-		opp.add(multiple);
-
-		racine.addActionListener(this);
-		opp.add(racine);
-		racinex.addActionListener(this);
-		opp.add(racinex);
-		ln.addActionListener(this);
-		opp.add(ln);
-		four.addActionListener(this);
-		opp.add(four);
-		five.addActionListener(this);
-		opp.add(five);
-		six.addActionListener(this);
-		opp.add(six);
-		substract.addActionListener(this);
-		opp.add(substract);
-
-
-		log.addActionListener(this);
-		opp.add(log);
-		fact.addActionListener(this);
-		opp.add(fact);
-		sin.addActionListener(this);
-		opp.add(sin);
-		one.addActionListener(this);
-		opp.add(one);
-		two.addActionListener(this);
-		opp.add(two);
-		three.addActionListener(this);
-		opp.add(three);
-		plus.addActionListener(this);
-		opp.add(plus);
-
-		cos.addActionListener(this);
-		opp.add(cos);
-		tan.addActionListener(this);
-		opp.add(tan);
-		pi.addActionListener(this);
-		opp.add(pi);
-		zero.addActionListener(this);
-		opp.add(zero);
-		dot.addActionListener(this);
-		opp.add(dot);
-		equal.addActionListener(this);
-		opp.add(equal);
+		devision.setActionCommand("devision");
 		
+		opp.add(care);
+		care.setActionCommand("care");
+		opp.add(ac);
+		ac.setActionCommand("ac");
+		
+		opp.add(multiple);
+		multiple.setActionCommand("multiple");
+		
+		opp.add(racine);
+		racine.setActionCommand("racine");
+		opp.add(ln);
+		ln.setActionCommand("ln");
+		opp.add(substract);
+		substract.setActionCommand("substract");
+		
+		
+		opp.add(log);
+		log.setActionCommand("log");
+		opp.add(sin);
+		sin.setActionCommand("sin");
+		opp.add(plus);
+		plus.setActionCommand("plus");
+		
+		opp.add(cos);
+		cos.setActionCommand("cos");
+		opp.add(tan);
+		tan.setActionCommand("tan");
+
 		this.add(head);
 		this.add(opp);
-		// this.add(number);
 
 		setVisible(true);
-		
-			
+
+
 	}
 
 
@@ -184,39 +153,23 @@ public class CalculatorView extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-	}}
-	
-
-	
-// 	public int getCalcSolution(){
-		
-// 		return Integer.parseInt(calcSolution.getText());
-		
-// 	}
-	
-// 	public void setCalcSolution(int solution){
-		
-// 		calcSolution.setText(Integer.toString(solution));
-		
-// 	}
-	
-// 	// Si on clique sur le bouton, on execute une méthode dans le controlleur
-	
-//             void addCalculateListener(ActionListener listenForCalcButton){
-		
-// 		calculateButton.addActionListener(listenForCalcButton);
-		
-// 	}
-	
-	
-	
-// 	void displayErrorMessage(String errorMessage){
-		
-// 		JOptionPane.showMessageDialog(this, errorMessage);
-		
-// 	}
-
- 
-	
-// }
+	}
+	// Si on clique sur le bouton, on execute une méthode dans le controlleur
+    void addCalculateListener(ActionListener listenForCalcButton){
+		plus.addActionListener(listenForCalcButton);
+		substract.addActionListener(listenForCalcButton);
+		devision.addActionListener(listenForCalcButton);
+		multiple.addActionListener(listenForCalcButton);
+		ac.addActionListener(listenForCalcButton);
+		care.addActionListener(listenForCalcButton);
+		racine.addActionListener(listenForCalcButton);
+		log.addActionListener(listenForCalcButton);
+		ln.addActionListener(listenForCalcButton);
+		tan.addActionListener(listenForCalcButton);
+		sin.addActionListener(listenForCalcButton);
+		cos.addActionListener(listenForCalcButton);
+	}
+	void displayErrorMessage(String errorMessage){
+		JOptionPane.showMessageDialog(this, errorMessage);
+	}
+}

@@ -14,15 +14,51 @@ package mvc;
 
 public class CalculatorModel {
 
-    private int calculationValue;
+    private double calculationValue;
 
-    public void addTwoNumbers(int firstNumber, int secondNumber){
-        calculationValue = firstNumber + secondNumber;
+    public void add (String firstNumber, String secondNumber){
+        calculationValue = Double.parseDouble(firstNumber)+Double.parseDouble(secondNumber);
     }
-    
-    public int getCalculationValue(){
-        return calculationValue;        
+    public void sub (String firstNumber, String secondNumber){
+        calculationValue = Double.parseDouble(firstNumber)-Double.parseDouble(secondNumber);
+    }
+    public void mul (String firstNumber, String secondNumber){
+        calculationValue = Double.parseDouble(firstNumber)*Double.parseDouble(secondNumber);
+    }
+    public void dev (String firstNumber, String secondNumber){
+        calculationValue = Double.parseDouble(firstNumber)/Double.parseDouble(secondNumber);
+    }
+    public void tan (String firstNumber){
+        calculationValue = Math.tan(Double.parseDouble(firstNumber));
+    }
+    public void sin (String firstNumber){
+        calculationValue = Math.sin(Double.parseDouble(firstNumber));
+    }
+    public void cos (String firstNumber){
+        calculationValue = Math.cos(Double.parseDouble(firstNumber));
+    }
+    public void ln (String firstNumber){
+        calculationValue = Math.log10(Double.parseDouble(firstNumber));
+    }
+    public void pow (String firstNumber){
+        calculationValue = Math.pow(Double.parseDouble(firstNumber),2);
+    }
+    public void clear (String firstNumber){}
+    public void log (String firstNumber){
+        calculationValue = Math.log(Double.parseDouble(firstNumber));
+    }
+    public void rac (String firstNumber){
+        calculationValue = Math.sqrt(Double.parseDouble(firstNumber));
+    }
+    public void ac() {
+        calculationValue=0;
+    }
 
-    }   
+
+
+    public double getCalculationValue(){
+        return calculationValue;
+
+    }
 
 }
