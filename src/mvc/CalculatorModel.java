@@ -14,49 +14,63 @@ package mvc;
 
 public class CalculatorModel {
 
-    private double calculationValue;
+    private String calculationValue;
 
     public void add (String firstNumber, String secondNumber){
-        calculationValue = Double.parseDouble(firstNumber)+Double.parseDouble(secondNumber);
+        calculationValue = ""+(Double.parseDouble(firstNumber)+Double.parseDouble(secondNumber));
     }
     public void sub (String firstNumber, String secondNumber){
-        calculationValue = Double.parseDouble(firstNumber)-Double.parseDouble(secondNumber);
+        calculationValue = ""+(Double.parseDouble(firstNumber)-Double.parseDouble(secondNumber));
     }
     public void mul (String firstNumber, String secondNumber){
-        calculationValue = Double.parseDouble(firstNumber)*Double.parseDouble(secondNumber);
+        calculationValue = ""+(Double.parseDouble(firstNumber)*Double.parseDouble(secondNumber));
     }
     public void dev (String firstNumber, String secondNumber){
-        calculationValue = Double.parseDouble(firstNumber)/Double.parseDouble(secondNumber);
+        calculationValue = ""+(Double.parseDouble(firstNumber)/Double.parseDouble(secondNumber));
     }
     public void tan (String firstNumber){
-        calculationValue = Math.tan(Double.parseDouble(firstNumber));
+        calculationValue = ""+Math.tan(Double.parseDouble(firstNumber));
     }
     public void sin (String firstNumber){
-        calculationValue = Math.sin(Double.parseDouble(firstNumber));
+        calculationValue = ""+Math.sin(Double.parseDouble(firstNumber));
     }
     public void cos (String firstNumber){
-        calculationValue = Math.cos(Double.parseDouble(firstNumber));
+        calculationValue = ""+Math.cos(Double.parseDouble(firstNumber));
     }
     public void ln (String firstNumber){
-        calculationValue = Math.log10(Double.parseDouble(firstNumber));
+        calculationValue = ""+Math.log10(Double.parseDouble(firstNumber));
     }
     public void pow (String firstNumber){
-        calculationValue = Math.pow(Double.parseDouble(firstNumber),2);
+        calculationValue = ""+Math.pow(Double.parseDouble(firstNumber),2);
     }
     public void clear (String firstNumber){}
     public void log (String firstNumber){
-        calculationValue = Math.log(Double.parseDouble(firstNumber));
+        calculationValue = ""+Math.log(Double.parseDouble(firstNumber));
     }
     public void rac (String firstNumber){
-        calculationValue = Math.sqrt(Double.parseDouble(firstNumber));
+        calculationValue = ""+Math.sqrt(Double.parseDouble(firstNumber));
     }
     public void ac() {
-        calculationValue=0;
+        calculationValue=""+0;
     }
 
+    public void binarySum(String firstNumber, String secondNumber){
+        calculationValue =  Integer.toBinaryString(Integer.parseInt(firstNumber, 2) + Integer.parseInt(secondNumber, 2));
+    }
 
+    public void binaryDiff(String firstNumber, String secondNumber){
+        calculationValue =  Integer.toBinaryString(Integer.parseInt(firstNumber, 2) - Integer.parseInt(secondNumber, 2));
+    }
 
-    public double getCalculationValue(){
+    public void binaryProd(String firstNumber, String secondNumber){
+        calculationValue =  Integer.toBinaryString(Integer.parseInt(firstNumber, 2) * Integer.parseInt(secondNumber, 2));
+    }
+
+    public void binaryQuotient(String firstNumber, String secondNumber){
+        calculationValue =  Integer.toBinaryString(Integer.parseInt(firstNumber, 2) / Integer.parseInt(secondNumber, 2));
+    }
+
+    public String getCalculationValue(){
         return calculationValue;
 
     }

@@ -34,18 +34,19 @@ public class CalculatorView extends JFrame implements ActionListener{
 		return secondNumber.getText();
 	}
 
-	private JTextField calcSolution = new JTextField(10);
+	private JTextField calcSolution = new JTextField(15);
 	public String getCalcSolution(){
 		return calcSolution.getText();
 	}
-	public void setCalcSolution(double solution){
-		calcSolution.setText(Double.toString(solution));
+	public void setCalcSolution(String solution){
+		calcSolution.setText(solution);
 	}
 
 	// JFrame frame =  new JFrame();
 	JPanel head = new JPanel();
 	Container number = new Container();
 	Container opp = new Container();
+	Container binopp = new Container();
 
 
 
@@ -93,7 +94,10 @@ public class CalculatorView extends JFrame implements ActionListener{
 	JButton tan = new JButton("tan");
 	JButton pi = new JButton("pi");
 
-
+	JButton binSum = new JButton("bsum");
+	JButton binDiff = new JButton("bdif");
+	JButton binProd = new JButton("bprod");
+	JButton binQuot = new JButton("bquot");
 
 	CalculatorView(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,37 +115,48 @@ public class CalculatorView extends JFrame implements ActionListener{
 		opp.setLayout(new GridLayout(5,7));
 		opp.add(devision);
 		devision.setActionCommand("devision");
-		
+
 		opp.add(care);
 		care.setActionCommand("care");
 		opp.add(ac);
 		ac.setActionCommand("ac");
-		
+
 		opp.add(multiple);
 		multiple.setActionCommand("multiple");
-		
+
 		opp.add(racine);
 		racine.setActionCommand("racine");
 		opp.add(ln);
 		ln.setActionCommand("ln");
 		opp.add(substract);
 		substract.setActionCommand("substract");
-		
-		
+
 		opp.add(log);
 		log.setActionCommand("log");
 		opp.add(sin);
 		sin.setActionCommand("sin");
 		opp.add(plus);
 		plus.setActionCommand("plus");
-		
+
 		opp.add(cos);
 		cos.setActionCommand("cos");
 		opp.add(tan);
 		tan.setActionCommand("tan");
 
+		binopp.setLayout(new GridLayout(2,2));
+		binopp.add(binSum);
+		binSum.setActionCommand("binSum");
+		binopp.add(binDiff);
+		binDiff.setActionCommand("binDiff");
+
+		binopp.add(binProd);
+		binProd.setActionCommand("binProd");
+		binopp.add(binQuot);
+		binQuot.setActionCommand("binQuot");
+
 		this.add(head);
 		this.add(opp);
+		this.add(binopp);
 
 		setVisible(true);
 

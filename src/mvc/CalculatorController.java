@@ -37,57 +37,58 @@ public class CalculatorController {
 				secondNumber = theView.getSecondNumber();
 				if (e.getActionCommand().equals("plus")) {
 					theModel.add(firstNumber, secondNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("substract")) {
 					theModel.sub(firstNumber, secondNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("devision")) {
 					theModel.dev(firstNumber, secondNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("multiple")) {
 					theModel.mul(firstNumber, secondNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("ac")) {
 					theModel.ac();
-					theView.setCalcSolution(theModel.getCalculationValue());
-					theView.setFirstNumber("0");
-					theView.setSecondNumber("0");
+					theView.setFirstNumber("");
+					theView.setSecondNumber("");
 				}
 				if (e.getActionCommand().equals("care")) {
 					theModel.pow(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("racine")) {
 					theModel.rac(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("log")) {
 					theModel.log(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("ln")) {
 					theModel.ln(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("tan")) {
 					theModel.tan(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("sin")) {
 					theModel.sin(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
 				if (e.getActionCommand().equals("cos")) {
 					theModel.cos(firstNumber);
-					theView.setCalcSolution(theModel.getCalculationValue());
 				}
+				if (e.getActionCommand().equals("binSum")) {
+					theModel.binarySum(firstNumber, secondNumber);
+				}
+				if (e.getActionCommand().equals("binDiff")) {
+					theModel.binaryDiff(firstNumber, secondNumber);;
+				}
+				if (e.getActionCommand().equals("binProd")) {
+					theModel.binaryProd(firstNumber, secondNumber);;
+				}
+				if (e.getActionCommand().equals("binQuot")) {
+					theModel.binaryQuotient(firstNumber, secondNumber);;
+				}
+				theView.setCalcSolution(theModel.getCalculationValue());
 			} catch (NumberFormatException ex) {
 				System.out.println(ex);
-				theView.displayErrorMessage("You Need to Enter 2 Integers");
+				theView.displayErrorMessage("You Need to Enter 2 Numbers");
 			}
 		}
 
